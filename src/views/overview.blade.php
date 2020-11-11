@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('rapidez::layouts.app')
 
 @section('title', 'Compare')
 
