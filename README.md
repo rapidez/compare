@@ -1,8 +1,18 @@
 # Rapidez Compare
 
+## Installation
+
+This package is installed by default in Rapidez. But if removed you can re-install it with:
+
+```
+composer require rapidez/compare
+```
+
+## Info
+
 The compared products are available at `this.$root.config.compare` on the category and compare page which is reactive.
 
-## Checkbox
+### Checkbox
 
 There is a `Checkbox.vue` component which can be used. Just register it in the `app.js`:
 ```
@@ -13,7 +23,7 @@ This component can be customized with `classLabel` and `classCheckbox` props. If
 <product-compare-checkbox :key="item.id" />
 ```
 
-## Widget
+### Widget
 
 There is a `Widget.vue` component which can be used. Just register it in the `app.js`:
 ```
@@ -29,6 +39,9 @@ This component can be customized with multiple class props. It's also possible t
 ```
 The props should be in kebab-case in Blade.
 
-## Overview
+### Overview
 
-Just like the others there is a `Overview.vue` component. And because this is a whole page there is also a Blade view. To overwrite that view you've to publish it with `php artisan vendor:publish --provider="Rapidez\Compare\CompareServiceProvider"`.
+Just like the others there is a `Overview.vue` component. And because this is a whole page there is also a Blade view. To overwrite that view you've to publish it with 
+```
+php artisan vendor:publish --provider="Rapidez\Compare\CompareServiceProvider"
+```
