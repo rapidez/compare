@@ -24,7 +24,7 @@ class CompareServiceProvider extends ServiceProvider
             __DIR__.'/views' => resource_path('views/vendor/compare'),
         ], 'views');
 
-        View::composer(['rapidez::category.overview', 'compare::overview'], function ($view) {
+        View::composer(['rapidez::category.overview', 'rapidez::search.overview', 'compare::overview'], function ($view) {
             if ($productIds = session('compare')) {
                 $products = $this->getComparedProductsArray($productIds);
             }
