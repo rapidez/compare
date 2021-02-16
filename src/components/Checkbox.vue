@@ -1,5 +1,5 @@
 <template>
-    <label :class="classLabel">
+    <label :class="classLabel" v-if="this.$root.config.compare">
         <input
             type="checkbox"
             :checked="checked"
