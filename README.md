@@ -52,3 +52,7 @@ And because this is a whole page there is also a Blade view. To overwrite that v
 ```
 php artisan vendor:publish --provider="Rapidez\Compare\CompareServiceProvider"
 ```
+
+## License
+
+GNU General Public License v3. Please see [License File](LICENSE) for more information.
