@@ -18,13 +18,13 @@ class CompareServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom(__DIR__.'/views', 'compare');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'rapidez');
 
         $this->publishes([
-            __DIR__.'/views' => resource_path('views/vendor/compare'),
+            __DIR__.'/../resources/views' => resource_path('views/vendor/rapidez'),
         ], 'views');
 
-        View::composer(['rapidez::category.overview', 'rapidez::search.overview', 'compare::overview'], function ($view) {
+        View::composer(['rapidez::category.overview', 'rapidez::search.overview', 'rapidez::compare.overview'], function ($view) {
             if ($productIds = session('compare')) {
                 $products = $this->getComparedProductsArray($productIds);
             }
@@ -34,7 +34,7 @@ class CompareServiceProvider extends ServiceProvider
 
         Route::middleware('web')->group(function () {
             Route::get('compare', function () {
-                return view('compare::overview');
+                return view('rapidez::compare.overview');
             });
 
             Route::post('compare', function (Request $request) {
