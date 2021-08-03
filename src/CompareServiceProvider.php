@@ -2,12 +2,12 @@
 
 namespace Rapidez\Compare;
 
-use Rapidez\Core\Models\Product;
-use Rapidez\Core\Models\Scopes\Product\WithProductAttributesScope;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Rapidez\Core\Models\Product;
+use Rapidez\Core\Models\Scopes\Product\WithProductAttributesScope;
 
 class CompareServiceProvider extends ServiceProvider
 {
@@ -40,6 +40,7 @@ class CompareServiceProvider extends ServiceProvider
             Route::post('compare', function (Request $request) {
                 abort_unless(Product::exist($request->product), 404);
                 $request->session()->push('compare', $request->product);
+
                 return $this->getComparedProductsArray($request->session()->get('compare'));
             })->name('compare.store');
 
@@ -47,6 +48,7 @@ class CompareServiceProvider extends ServiceProvider
                 $compare = $request->session()->get('compare');
                 $compare = array_values(array_filter($compare, fn ($id) => $id != $product));
                 $request->session()->put('compare', $compare);
+
                 return $this->getComparedProductsArray($compare);
             })->name('compare.destroy');
         });
@@ -56,7 +58,7 @@ class CompareServiceProvider extends ServiceProvider
     {
         return Product::byIds($productIds)
             ->withoutGlobalScopes()
-            ->withGlobalScope(WithProductAttributesScope::class, new WithProductAttributesScope)
+            ->withGlobalScope(WithProductAttributesScope::class, new WithProductAttributesScope())
             ->selectOnlyComparable()
             ->get()
             ->keyBy('id')
