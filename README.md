@@ -10,11 +10,6 @@ composer require rapidez/compare
 
 The compared products are available at `this.$root.config.compare` on the category, search and compare page which is reactive.
 
-Make sure this exists in your `app.js`:
-```js
-import.meta.glob(['Vendor/rapidez/*/resources/js/app.js'], { eager: true });
-```
-
 ### Checkbox
 
 This component can be customized with `classLabel` and `classCheckbox` props. If it does not fit your needs you can create your own Vue component and use the mixin: `CheckboxLogic.js` for the functionality as done within the component. The product ID should be passed as component key. Example usage within the `category/partials/listing/item.blade.php`:

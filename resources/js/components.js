@@ -1,11 +1,7 @@
 import 'Vendor/rapidez/core/resources/js/vue'
 
-(() => {
-    const components = {
-        ...import.meta.glob(['./components/*.vue', '!./components/*.lazy.vue'], { eager: true, import: 'default' }),
-        ...import.meta.glob(['./components/*.lazy.vue'], { eager: false, import: 'default' })
-    };
-    for (const path in components) {
-        Vue.component(path.split('/').pop().split('.').shift(), components[path])
-    }
-})();
+import ProductCompareCheckbox from './components/ProductCompareCheckbox.vue'
+Vue.component('product-compare-checkbox', ProductCompareCheckbox)
+
+Vue.component('product-compare-overview', () => import('./components/ProductCompareOverview.vue'))
+Vue.component('product-compare-widget', () => import('./components/ProductCompareWidget.vue'))
