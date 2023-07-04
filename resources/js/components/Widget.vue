@@ -7,7 +7,7 @@
             </slot>
         </div>
         <div class="text-center">
-            <a href="/compare" :class="classCompareButton">Compare</a>
+            <a :href="'/compare' | url" :class="classCompareButton">Compare</a>
         </div>
     </div>
 </template>

@@ -9,7 +9,7 @@ export default {
         },
 
         compareAdd(productId) {
-            axios.post('/compare', {
+            axios.post(window.url('/compare'), {
                 product: productId
             }).then(response => {
                 this.$root.config.compare = response.data;
@@ -19,7 +19,7 @@ export default {
         },
 
         compareRemove(productId) {
-            axios.delete('/compare/' + productId).then(response => {
+            axios.delete(window.url('/compare/' + productId)).then(response => {
                 this.$root.config.compare = response.data;
             }).catch(error => {
                 alert('Something went wrong.')
