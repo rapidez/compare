@@ -1,6 +1,6 @@
 <script>
 
-import {addProductToCompare, compare, createCompare} from './../stores/useCompare.js'
+import { addProductToCompare } from './../stores/useCompare.js'
 
 export default {
     props:['id'],
