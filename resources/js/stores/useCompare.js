@@ -26,6 +26,10 @@ export const refreshCompare = async function() {
     })
 
     compare.value = response.data.compareList;
+
+    if (!compare.value?.item_count) {
+        clear();
+    }
 }
 
 export const addProductToCompare = async function (products) {
@@ -51,7 +55,7 @@ export const addProductToCompare = async function (products) {
 
         await refreshCompare()
 
-        Notify(window.config.product.name + ' ' + window.config.translations.compare.add);
+        Notify(window.config.translations.compare.add);
     } catch (error) {
         Notify(window.config.translations.errors.wrong, 'error')
         console.error(error)
