@@ -1,0 +1,34 @@
+{
+    "name": "rapidez/compare",
+    "description": "Rapidez Product Compare",
+    "minimum-stability": "dev",
+    "homepage": "https://rapidez.io",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Bob Wezelman",
+            "email": "bob@justbetter.nl"
+        }
+    ],
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.0|^8.1",
+        "rapidez/core": "~2.0",
+        "illuminate/support": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rapidez\\Compare\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rapidez\\Compare\\RapidezCompareServiceProvider"
+            ]
+        }
+    }
+}
