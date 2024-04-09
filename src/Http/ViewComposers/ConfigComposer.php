@@ -2,8 +2,8 @@
 
 namespace Rapidez\Compare\Http\ViewComposers;
 
-use Illuminate\View\View;
 use Illuminate\Support\Facades\Config;
+use Illuminate\View\View;
 
 class ConfigComposer
 {
