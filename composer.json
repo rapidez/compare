@@ -1,26 +1,20 @@
 {
     "name": "rapidez/compare",
-    "description": "Rapidez Compare",
-    "keywords": [
-        "rapidez"
-    ],
+    "description": "Rapidez Product Compare",
+    "minimum-stability": "dev",
     "homepage": "https://rapidez.io",
     "license": "GPL-3.0",
     "authors": [
         {
-            "name": "Roy Duineveld",
-            "email": "royduineveld@gmail.com",
-            "homepage": "https://royduineveld.nl",
-            "role": "Developer"
+            "name": "Bob Wezelman",
+            "email": "bob@justbetter.nl"
         }
     ],
-    "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^8.0|^8.1",
-        "illuminate/http": "^9.0",
-        "illuminate/support": "^9.0",
-        "rapidez/core": "~0.91|^1.0"
+        "rapidez/core": "~2.0",
+        "illuminate/support": "^10.0"
     },
     "autoload": {
         "psr-4": {
@@ -33,7 +27,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Rapidez\\Compare\\CompareServiceProvider"
+                "Rapidez\\Compare\\RapidezCompareServiceProvider"
             ]
         }
     }

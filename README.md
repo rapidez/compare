@@ -6,52 +6,48 @@
 composer require rapidez/compare
 ```
 
-## Info
+## Compared products
 
-The compared products are available at `this.$root.config.compare` on the category, search and compare page which is reactive.
-
-### Checkbox
-
-There is a `Checkbox.vue` component which can be used. Just register it in the `app.js`:
-```
-Vue.component('product-compare-checkbox', require('Vendor/Rapidez/Compare/src/components/Checkbox.vue').default);
-```
-This component can be customized with `classLabel` and `classCheckbox` props. If it does not fit your needs you can create your own Vue component and use the mixin: `CheckboxLogic.js` for the functionality as done within the component. The product ID should be passed as component key. Example usage within the `category/partials/listing/item.blade.php`:
-```
-<product-compare-checkbox
-    v-if="$root.config.compare"
-    class="absolute right-0 top-0 p-1 mt-3 hidden group-hover:flex items-center flex-row-reverse bg-gray-100 text-gray-500 rounded-l lowercase"
-    :key="item.id"
-    class-checkbox="ml-1"
-/>
+The compared products are available in the compare variable imported from the `useCompare.js` file.
+```js
+import { compare } from './../stores/useCompare.js'
 ```
 
-### Widget
+## Adding products
+To add a product to the compare list you can simply import the add function and execute it with product id's.
+```js
+import { addProductToCompare } from './../stores/useCompare.js'
 
-There is a `Widget.vue` component which can be used. Just register it in the `app.js`:
+addProductToCompare(['1', '2']);
 ```
-Vue.component('product-compare-widget', require('Vendor/Rapidez/Compare/src/components/Widget.vue').default);
-```
-This component can be customized with multiple class props. It's also possible to overwrite the product part of it with the slot. If it does not fit your needs you can create your own Vue component and use the mixin: `Methods.js` for the functionality as done within the component. Most likely the component is displayed fixed so render it at the end of the html with for example the `page_end` stack on the `category/overview.blade.php` and `search/overview.blade.php`:
-```
-@push('page_end')
-    <product-compare-widget
-        class-wrapper="fixed right-0 bottom-0 mr-16 p-3 bg-blue-500 rounded-t"
-    />
-@endpush
-```
-The props should be in kebab-case in Blade.
 
-### Overview
+If you want a button on the product detail page, you can simply import this partial:
+```
+@include('rapidez-compare::product.partials.compare')
+```
 
-Just like the others there is a `Overview.vue` component:
+## Showing a user their compare list
+Within your vue app container you can show the user they have a compare list. This will show a button with a count. Clicking on this will result in the user redirecting to the compare page.
 ```
-Vue.component('product-compare-overview', require('Vendor/rapidez/compare/src/components/Overview.vue').default)
+@include('rapidez-compare::partials.button')
 ```
-And because this is a whole page there is also a Blade view. To overwrite that view you've to publish it with 
+
+
+## Compare page
+The compare page show's a list of the comparable attributes of the products that are added. The url of the compare page can be changed in the config.
+
+
+## Views
+
 ```
-php artisan vendor:publish --provider="Rapidez\Compare\CompareServiceProvider"
+php artisan vendor:publish --provider="Rapidez\Compare\RapidezCompareServiceProvider"
 ```
+
+## Note
+Currently this module does not support:
+* Resizing the images
+* Displaying any pricing of the products
+* Linking a compare list to a customer
 
 ## License
 
