@@ -1,0 +1,22 @@
+uid
+item_count
+attributes {
+    code
+    label
+}
+items {
+    uid
+    product {
+        sku
+        name
+        url_key
+        image {
+            url
+            label
+        }
+    }
+    attributes {
+        code
+        value
+    }
+}

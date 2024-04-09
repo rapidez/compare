@@ -7,7 +7,7 @@ export const compare = useLocalStorage('compare', {}, {
 export const createCompare = async function () {
     try {
         // get a new id for the user;
-        let response = await magentoGraphQL("mutation { createCompareList { uid item_count attributes { code label } items { uid product { sku name url_key image { url label } } attributes { code value } } } }");
+        let response = await magentoGraphQL(`mutation { createCompareList { ${config.queries.compare} } }`);
 
         compare.value = response.data.createCompareList;
     } catch (error) {
@@ -21,7 +21,7 @@ export const refreshCompare = async function() {
         return;
     }
 
-    let response = await magentoGraphQL("query($uid: ID!) { compareList(uid: $uid) { uid item_count attributes { code label } items { uid product { sku name url_key image { url label } } attributes { code value } } } }", {
+    let response = await magentoGraphQL(`query($uid: ID!) { compareList(uid: $uid) { ${config.queries.compare} } }`, {
         uid: compare.value.uid
     })
 
@@ -97,5 +97,9 @@ export const removeProductFromCompare = async function(products) {
 }
 
 export const clear = async function () {
+    await magentoGraphQL('mutation($uid: ID!) { deleteCompareList(uid: $uid) { result } }', {
+        uid: compare.value.uid
+    })
+
     compare.value = {}
 }
