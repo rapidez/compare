@@ -50,8 +50,6 @@ php artisan vendor:publish --provider="Rapidez\Compare\RapidezCompareServiceProv
 
 ## Note
 Currently this module does not support:
-* Resizing the images
-* Displaying any pricing of the products
 * Linking a compare list to a customer
 
 ## License
