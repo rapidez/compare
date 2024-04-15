@@ -73,9 +73,13 @@ export const productInCompare = async function (id) {
 export const productsInCompare = async function (ids) {
     let present = false;
 
+    if (!compare.value?.uid) {
+        return present;
+    }
+
     ids.forEach((id) => {
         compare.value.items.forEach((item) => {
-            if (parseInt(item.uid) === id) {
+            if (parseInt(item.uid) === parseInt(id)) {
                 present = true;
             }
         })
@@ -85,7 +89,7 @@ export const productsInCompare = async function (ids) {
 }
 
 export const removeProductFromCompare = async function(product) {
-    removeProductsFromCompare([product]);
+    await removeProductsFromCompare([product]);
 }
 
 export const removeProductsFromCompare = async function(products) {
@@ -102,6 +106,8 @@ export const removeProductsFromCompare = async function(products) {
         })
 
         await refreshCompare()
+
+        Notify(window.config.compare.translations.remove);
     } catch (error) {
         Notify(window.config.translations.errors.wrong, 'error')
         console.error(error)

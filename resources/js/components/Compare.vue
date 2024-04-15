@@ -9,7 +9,7 @@ export default {
 
     methods: {
         remove(id) {
-            removeProductFromCompare([id])
+            removeProductFromCompare(id)
         },
 
         formatImage(img) {
