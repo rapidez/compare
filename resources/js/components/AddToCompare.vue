@@ -1,9 +1,17 @@
 <script>
 
-import { addProductToCompare } from './../stores/useCompare.js'
+import {addProductToCompare, productInCompare, removeProductFromCompare} from './../stores/useCompare.js'
 
 export default {
     props:['id'],
+
+    data: () => ({
+        inCompare: false
+    }),
+
+    mounted() {
+        this.setInCompare()
+    },
 
     render() {
         return this.$scopedSlots.default(this);
@@ -11,7 +19,21 @@ export default {
 
     methods: {
         async addProduct() {
-            await addProductToCompare([this.id])
+            await addProductToCompare(this.id)
+        },
+
+        async toggleCompare() {
+            if (this.inCompare) {
+                await removeProductFromCompare(this.id)
+            } else {
+                await this.addProduct();
+            }
+
+            this.setInCompare();
+        },
+
+        async setInCompare() {
+            this.inCompare = await productInCompare(this.id)
         }
     }
 }

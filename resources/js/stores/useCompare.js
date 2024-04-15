@@ -6,9 +6,7 @@ export const compare = useLocalStorage('compare', {}, {
 
 export const createCompare = async function () {
     try {
-        // get a new id for the user;
-        let response = await magentoGraphQL(`mutation { createCompareList { ${config.queries.compare} } }`);
-
+        let response = await magentoGraphQL(`mutation { createCompareList { ${config.compare.query} } }`);
         compare.value = response.data.createCompareList;
     } catch (error) {
         Notify(window.config.translations.errors.wrong, 'error')
@@ -21,7 +19,7 @@ export const refreshCompare = async function() {
         return;
     }
 
-    let response = await magentoGraphQL(`query($uid: ID!) { compareList(uid: $uid) { ${config.queries.compare} } }`, {
+    let response = await magentoGraphQL(`query($uid: ID!) { compareList(uid: $uid) { ${config.compare.query} } }`, {
         uid: compare.value.uid
     })
 
@@ -32,7 +30,11 @@ export const refreshCompare = async function() {
     }
 }
 
-export const addProductToCompare = async function (products) {
+export const addProductToCompare = async function(product) {
+    await addProductsToCompare([product])
+}
+
+export const addProductsToCompare = async function (products) {
     if (!compare.value?.uid || !products.length) {
         await createCompare()
     }
@@ -40,8 +42,7 @@ export const addProductToCompare = async function (products) {
     let present = await productsInCompare(products)
 
     if (present) {
-        Notify(window.config.translations.compare.already, 'error')
-
+        Notify(window.config.compare.translations.compare.already, 'error')
         return;
     }
 
@@ -55,19 +56,27 @@ export const addProductToCompare = async function (products) {
 
         await refreshCompare()
 
-        Notify(window.config.translations.compare.add);
+        Notify(window.config.compare.translations.add);
     } catch (error) {
         Notify(window.config.translations.errors.wrong, 'error')
         console.error(error)
     }
 }
 
+export const productInCompare = async function (id) {
+    return productsInCompare([id]);
+}
+
 export const productsInCompare = async function (ids) {
     let present = false;
 
+    if (!compare.value?.uid) {
+        return present;
+    }
+
     ids.forEach((id) => {
         compare.value.items.forEach((item) => {
-            if (item.uid === id) {
+            if (parseInt(item.uid) === parseInt(id)) {
                 present = true;
             }
         })
@@ -76,7 +85,11 @@ export const productsInCompare = async function (ids) {
     return present;
 }
 
-export const removeProductFromCompare = async function(products) {
+export const removeProductFromCompare = async function(product) {
+    await removeProductsFromCompare([product]);
+}
+
+export const removeProductsFromCompare = async function(products) {
     if (!compare.value?.uid || !products.length) {
         return;
     }
@@ -90,6 +103,7 @@ export const removeProductFromCompare = async function(products) {
         })
 
         await refreshCompare()
+        Notify(window.config.compare.translations.remove);
     } catch (error) {
         Notify(window.config.translations.errors.wrong, 'error')
         console.error(error)

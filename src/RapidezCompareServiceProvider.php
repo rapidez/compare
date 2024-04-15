@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Rapidez\Compare\Http\ViewComposers\ConfigComposer;
 
-
 class RapidezCompareServiceProvider extends ServiceProvider
 {
     public function register(): void
@@ -31,28 +30,28 @@ class RapidezCompareServiceProvider extends ServiceProvider
 
     protected function bootTranslations(): static
     {
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'rapidez-compare');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'rapidez-compare');
 
         return $this;
     }
 
     protected function registerConfig(): static
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/rapidez/compare.php', 'rapidez.compare');
+        $this->mergeConfigFrom(__DIR__.'/../config/rapidez/compare.php', 'rapidez.compare');
 
         return $this;
     }
 
     protected function bootRoutes(): static
     {
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
 
         return $this;
     }
 
     protected function bootViews(): static
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'rapidez-compare');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'rapidez-compare');
 
         return $this;
     }
