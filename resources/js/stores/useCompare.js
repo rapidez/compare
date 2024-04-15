@@ -43,6 +43,7 @@ export const addProductsToCompare = async function (products) {
 
     if (present) {
         Notify(window.config.compare.translations.compare.already, 'error')
+
         return;
     }
 
