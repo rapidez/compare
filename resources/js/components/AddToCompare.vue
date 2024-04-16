@@ -29,7 +29,7 @@ export default {
                 await this.addProduct();
             }
 
-            this.setInCompare();
+            await this.setInCompare();
         },
 
         async setInCompare() {
