@@ -24,10 +24,12 @@ export default {
 
         async toggleCompare() {
             if (this.inCompare) {
-                removeProductFromCompare(this.id)
+                await removeProductFromCompare(this.id)
             } else {
-                this.addProduct();
+                await this.addProduct();
             }
+
+            await this.setInCompare();
         },
 
         async setInCompare() {
