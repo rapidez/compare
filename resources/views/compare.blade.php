@@ -7,24 +7,31 @@
     <div class="container">
         <h1 class="mb-5 text-3xl font-bold">{{ __('Compare') }}</h1>
         <product-compare v-slot="compare">
-            <div class="w-full overflow-x-scroll">
-                <div class="flex py-4 z-20 border-b space-x-16">
-                    <div class="sticky left-0 w-1/5 flex-shrink-0 bg-white"></div>
-                    <a class="relative w-1/5 flex-shrink-0" v-for="item, key in compare.items" :href="item.product.url_key">
-                        <x-heroicon-c-x-mark class="absolute top-1 right-1 w-6 h-6" @click.prevent="compare.remove(item.uid)" />
-                        <img :src="item.product.image.url" :alt="item.product.image.name">
-                        <strong class="mt-5">
-                            @{{ item.product.name }}
-                        </strong>
-                    </a>
-                </div>
+            <div class="relative">
+                <div class="absolute left-0 top-0 bottom-5 w-1/2 sm:w-1/3 lg:w-1/4 xl:w-1/5 bg-white z-10 max-sm:hidden"></div>
+                <div class="overflow-x-auto overflow-y-hidden pb-5">
+                    <div class="flex flex-col -mt-px max-sm:-ml-3 -mx-px text-sm">
+                        <div class="flex *:pb-5 -mb-px relative *:w-1/2 *:sm:w-1/3 *:lg:w-1/4 *:xl:w-1/5 *:shrink-0">
+                            <div class="max-sm:hidden"></div>
+                            <a class="px-3.5 relative" v-for="item, key in compare.items" :href="item.product.url_key">
+                                <x-heroicon-c-x-mark class="absolute top-1 right-1 size-6" @click.prevent="compare.remove(item.uid)" />
+                                <img :src="item.product.image.url" :alt="item.product.image.name">
+                                <strong class="mt-5 block">
+                                    @{{ item.product.name }}
+                                </strong>
+                            </a>
+                        </div>
 
-                <div class="flex px-8 py-4 space-x-16 border-b" v-for="attribute, key in compare.attributes">
-                    <div class="sticky bg-white left-0 w-1/5 flex-shrink-0">
-                        <strong>@{{ attribute.label }}</strong>
-                    </div>
-                    <div class="w-1/5 flex-shrink-0" v-for="product, key in compare.items">
-                        @{{ product.attributes.find((attr) => attr.code === attribute.code)?.value }}
+                        <div class="flex *:border-t *:py-2.5 *:px-3.5 *:w-1/2 *:sm:w-1/3 *:lg:w-1/4 *:xl:w-1/5 *:shrink-0" v-for="attribute, key in compare.attributes">
+                            <strong class="absolute left-0 !pl-0 z-10 truncate block max-sm:pt-3.5 max-sm:w-auto max-sm:right-0 pointer-events-none">
+                                @{{ attribute.label }}
+                            </strong>
+                            <div class="max-sm:hidden"></div>
+                            <div v-for="product, key in compare.items" class="flex !px-0 !py-0">
+                                <div class="sticky w-px top-0 left-1/2 sm:left-1/3 lg:left-1/4 xl:left-[20%] bg-inactive-110 shrink-0 max-sm:hidden"></div>
+                                <div class="pb-1.5 px-3 sm:py-2.5 sm:px-3.5 max-sm:mt-9 max-sm:border-l">@{{ product.attributes.find((attr) => attr.code === attribute.code)?.value }}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
