@@ -5,7 +5,7 @@
 
 @section('content')
     <div class="container">
-        <h1 class="mb-5 text-3xl font-bold">{{ __('Compare') }}</h1>
+        <h1 class="mb-5 text-3xl font-bold">@lang('Compare')</h1>
         <product-compare v-slot="compare">
             <div class="relative text-sm">
                 <div class="absolute left-0 top-0 bottom-5 w-1/2 sm:w-1/3 lg:w-1/4 xl:w-1/5 bg-white z-10 max-sm:hidden"></div>
