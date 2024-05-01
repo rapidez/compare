@@ -24,7 +24,6 @@
                                     </a>
                                 </div>
                             </div>
-
                             <div class="flex *:py-2.5 *:px-3.5 *:w-1/2 *:sm:w-1/3 *:lg:w-1/4 *:xl:w-1/5 *:shrink-0 *:border-t border-t *:-mt-px" :class="{ '*:!border-t-0 !border-t-0 ': key === 0 }" v-for="attribute, key in compare.attributes">
                                 <strong class="absolute left-0 !pl-0 z-10 truncate block max-sm:pt-3.5 max-sm:w-auto max-sm:right-0 pointer-events-none font-semibold">
                                     @{{ attribute.label }}

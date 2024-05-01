@@ -1,6 +1,19 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/compare/compare/1.0.0...master)
+[Unreleased changes](https://github.com/rapidez/compare/compare/1.2.0...master)
+## [1.2.0](https://github.com/rapidez/compare/releases/tag/1.2.0) - 2024-04-16
+
+### Removed
+ - Remove unnecessary div (https://github.com/rapidez/compare/pull/8)
+### Fixed
+ - Improve checks & awaits by (https://github.com/rapidez/compare/pull/7)
+
+## [1.1.0](https://github.com/rapidez/compare/releases/tag/1.1.0) - 2024-04-12
+
+### Added
+- Added listing checkbox, improved images, added prices (https://github.com/rapidez/compare/pull/6)
+
+
 ## [1.0.0](https://github.com/rapidez/compare/releases/tag/1.0.0) - 2024-04-09
 
 Breaking: The module has been refactored to use Magento's compare functionality.
