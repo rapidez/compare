@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/compare/compare/1.2.0...master)
+[Unreleased changes](https://github.com/rapidez/compare/compare/1.3.0...master)
+## [1.3.0](https://github.com/rapidez/compare/releases/tag/1.3.0) - 2024-05-01
+
+### Changed
+
+- Comparison table styling (#9)
+
 ## [1.2.0](https://github.com/rapidez/compare/releases/tag/1.2.0) - 2024-04-16
 
 ### Removed
