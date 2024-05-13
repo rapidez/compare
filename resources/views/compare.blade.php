@@ -33,7 +33,7 @@
                                 <div class="flex *:px-3.5 *:pb-3 *:w-1/2 sm:*:w-1/3 *:lg:w-1/4 *:xl:w-1/5 *:shrink-0" ref="container">
                                     <div></div>
                                     <div
-                                        class="relative flex flex-col snap-start sm:snap-center max-sm:-translate-x-full"
+                                        class="relative flex flex-col snap-end max-sm:-translate-x-full"
                                         v-for="item, key in compare.items"
                                     >
                                         <button
