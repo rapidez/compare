@@ -6,3 +6,4 @@
         </x-rapidez::button.outline>
     </div>
 </product-compare>
+
