@@ -1,6 +1,25 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/compare/compare/1.3.0...master)
+[Unreleased changes](https://github.com/rapidez/compare/compare/1.4.2...master)
+## [1.4.2](https://github.com/rapidez/compare/releases/tag/1.4.2) - 2024-05-17
+
+### Fixed
+
+- Publish views and remove price range from query (#13)
+
+## [1.4.1](https://github.com/rapidez/compare/releases/tag/1.4.1) - 2024-05-15
+
+### Fixed
+
+- Add z-0 to main container (#12)
+
+## [1.4.0](https://github.com/rapidez/compare/releases/tag/1.4.0) - 2024-05-14
+
+### Changed
+
+- Enable scroll snapping & turn table into rapidez slider (#10)
+- Restructured files and finetuning frontend (#11)
+
 ## [1.3.0](https://github.com/rapidez/compare/releases/tag/1.3.0) - 2024-05-01
 
 ### Changed
