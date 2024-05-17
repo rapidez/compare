@@ -53,6 +53,10 @@ class RapidezCompareServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'rapidez-compare');
 
+        $this->publishes([
+            __DIR__.'/../resources/views' => resource_path('views/vendor/rapidez-compare'),
+        ], 'views');
+
         return $this;
     }
 }
