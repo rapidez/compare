@@ -33,6 +33,13 @@
                                             </a>
                                         </div>
                                     </div>
+                                    <div class="h-12 *:h-12 flex my-3 sm:my-6">
+                                        <div class="border-y bg-ct-inactive-100 flex justify-center items-center cursor-pointer absolute left-0 sm:left-1/3 lg:left-1/4 xl:left-[20%] right-0">
+                                            <x-rapidez::checkbox v-model="compare.onlyShowDifferent">
+                                                @lang('Only show differences')
+                                            </x-rapidez::checkbox>
+                                        </div>
+                                    </div>
                                     <div
                                         v-for="attribute, key in compare.attributes"
                                         class="flex *:py-2.5 *:px-3.5 *:w-1/2 sm:*:w-1/3 *:lg:w-1/4 *:xl:w-1/5 *:shrink-0 *:border-t border-t *:-mt-px"

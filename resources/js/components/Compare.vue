@@ -3,6 +3,10 @@
 import { compare, removeProductFromCompare } from './../stores/useCompare.js'
 
 export default {
+    data: () => ({
+        onlyShowDifferent: false
+    }),
+
     render() {
         return this.$scopedSlots.default(this);
     },
@@ -29,8 +33,17 @@ export default {
             return compare.value?.item_count;
         },
 
-        attributes: () => {
-            return compare.value?.attributes
+        attributes: function () {
+            return this.onlyShowDifferent ? this.differentAttributes : compare.value?.attributes
+        },
+
+        differentAttributes: function () {
+            let firstItem = this.items[0];
+            return compare.value?.attributes.filter((attr) => {
+                return this.items.some((item) => {
+                    return item.attributes.find((itemAttribute) => itemAttribute.code === attr.code).value !== firstItem.attributes.find((itemAttribute) => itemAttribute.code === attr.code).value
+                })
+            })
         }
     }
 }
