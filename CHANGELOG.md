@@ -1,6 +1,13 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/compare/compare/1.4.2...master)
+[Unreleased changes](https://github.com/rapidez/compare/compare/1.5.0...master)
+## [1.5.0](https://github.com/rapidez/compare/releases/tag/1.5.0) - 2024-06-07
+
+### Added
+
+-  Added Laravel 11 to composer.json (#14)
+- Added option to only show attributes with differences (#15)
+
 ## [1.4.2](https://github.com/rapidez/compare/releases/tag/1.4.2) - 2024-05-17
 
 ### Fixed
