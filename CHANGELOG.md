@@ -5,7 +5,7 @@
 
 ### Added
 
--  Added Laravel 11 to composer.json (#14)
+- Added Laravel 11 to composer.json (#14)
 - Added option to only show attributes with differences (#15)
 
 ## [1.4.2](https://github.com/rapidez/compare/releases/tag/1.4.2) - 2024-05-17
