@@ -33,7 +33,7 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div v-if="compare.items.length > 2" class="h-12 *:h-12 flex my-3 sm:my-6">
+                                    <div v-if="compare.items.length > 1" class="h-12 *:h-12 flex my-3 sm:my-6">
                                         <div class="border-y bg flex justify-center items-center cursor-pointer absolute left-0 sm:left-1/3 lg:left-1/4 xl:left-[20%] right-0">
                                             <x-rapidez::checkbox v-model="compare.onlyShowDifferent">
                                                 @lang('Only show differences')
