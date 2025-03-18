@@ -22,10 +22,10 @@
                                             v-for="item, key in compare.items"
                                         >
                                             <button
-                                                class="absolute top-1 right-1 cursor-pointer p-2.5 hover:bg-inactive-100 transition rounded-full group"
+                                                class="absolute top-1 right-1 cursor-pointer p-2.5 hover:bg transition rounded-full group"
                                                 v-on:click.prevent="compare.remove(item.uid)"
                                             >
-                                                <x-heroicon-o-x-mark stroke-width="3" class="size-4 text-inactive group-hover:text-neutral transition" />
+                                                <x-heroicon-o-x-mark stroke-width="3" class="size-4 text-muted group-hover:text transition" />
                                             </button>
                                             <img class="object-contain h-28 sm:h-40" :src="item.product.image.url" :alt="item.product.image.name">
                                             <a class="mt-1 font-semibold hover:underline" :href="item.product.url_key">
@@ -33,8 +33,8 @@
                                             </a>
                                         </div>
                                     </div>
-                                    <div class="h-12 *:h-12 flex my-3 sm:my-6">
-                                        <div class="border-y bg-ct-inactive-100 flex justify-center items-center cursor-pointer absolute left-0 sm:left-1/3 lg:left-1/4 xl:left-[20%] right-0">
+                                    <div v-if="compare.items.length > 1" class="h-12 *:h-12 flex my-3 sm:my-6">
+                                        <div class="border-y bg flex justify-center items-center cursor-pointer absolute left-0 sm:left-1/3 lg:left-1/4 xl:left-[20%] right-0">
                                             <x-rapidez::checkbox v-model="compare.onlyShowDifferent">
                                                 @lang('Only show differences')
                                             </x-rapidez::checkbox>
@@ -50,7 +50,7 @@
                                         </strong>
                                         <div></div>
                                         <div v-for="product, key in compare.items" class="flex !px-0 !py-0 max-sm:-translate-x-full">
-                                            <div class="sticky w-px top-0 left-1/2 sm:left-1/3 lg:left-1/4 xl:left-[20%] bg-inactive-110 shrink-0 max-sm:hidden"></div>
+                                            <div class="sticky w-px top-0 left-1/2 sm:left-1/3 lg:left-1/4 xl:left-[20%] bg-muted shrink-0 max-sm:hidden"></div>
                                             <div class="pb-1.5 px-3 sm:py-2.5 sm:px-3.5 max-sm:mt-9 max-sm:border-l">@{{ product.attributes.find((attr) => attr.code === attribute.code)?.value }}</div>
                                         </div>
                                     </div>
