@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/compare/compare/1.5.0...master)
+[Unreleased changes](https://github.com/rapidez/compare/compare/3.0.0...master)
+## [3.0.0](https://github.com/rapidez/compare/releases/tag/3.0.0) - 2025-03-18
+
+### Added
+
+- Rapidez v3 support (5e140ed, #17)
+
 ## [1.5.0](https://github.com/rapidez/compare/releases/tag/1.5.0) - 2024-06-07
 
 ### Added
