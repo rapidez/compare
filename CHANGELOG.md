@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/compare/compare/3.0.0...master)
+[Unreleased changes](https://github.com/rapidez/compare/compare/3.1.0...master)
+## [3.1.0](https://github.com/rapidez/compare/releases/tag/3.1.0) - 2025-04-10
+
+### Changed
+
+- Handle the Laravel requirement through the core requirement (4fc0383)
+
 ## [3.0.0](https://github.com/rapidez/compare/releases/tag/3.0.0) - 2025-03-18
 
 ### Added
