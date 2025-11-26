@@ -1,5 +1,8 @@
 import AddToCompare from "./components/AddToCompare.vue";
 import Compare from "./components/Compare.vue";
 
-Vue.component('add-to-compare', AddToCompare)
-Vue.component('product-compare', Compare)
+document.addEventListener('vue:loaded', function (event) {
+    const vue = event.detail.vue
+    vue.component('add-to-compare', AddToCompare)
+    vue.component('product-compare', Compare)
+})

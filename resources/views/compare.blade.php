@@ -10,8 +10,8 @@
             <div class="relative text-sm z-0">
                 <template v-if="compare?.items?.length">
                     <div class="absolute left-0 top-0 bottom-5 w-1/2 sm:w-1/3 lg:w-1/4 xl:w-1/5 bg-white z-10 max-sm:hidden"></div>
-                    <slider container-reference="container">
-                        <div class="overflow-hidden" slot-scope="{ showLeft, showRight, currentSlide, navigate }">
+                    <slider container-reference="container" v-slot="{ showLeft, showRight, currentSlide, navigate }">
+                        <div class="overflow-hidden">
                             @include('rapidez-compare::partials.next-prev-navigation')
                             <div class="overflow-x-auto overflow-y-hidden pb-5 -mt-px max-sm:-ml-3 -mr-px snap-x" ref="slider">
                                 <div class="flex flex-col">
@@ -35,9 +35,9 @@
                                     </div>
                                     <div v-if="compare.items.length > 1" class="h-12 *:h-12 flex my-3 sm:my-6">
                                         <div class="border-y bg flex justify-center items-center cursor-pointer absolute left-0 sm:left-1/3 lg:left-1/4 xl:left-[20%] right-0">
-                                            <x-rapidez::checkbox v-model="compare.onlyShowDifferent">
+                                            <x-rapidez::input.checkbox v-model="compare.onlyShowDifferent">
                                                 @lang('Only show differences')
-                                            </x-rapidez::checkbox>
+                                            </x-rapidez::input.checkbox>
                                         </div>
                                     </div>
                                     <div
