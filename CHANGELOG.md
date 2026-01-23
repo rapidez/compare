@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/compare/compare/5.0.0...master)
+[Unreleased changes](https://github.com/rapidez/compare/compare/5.0.1...master)
+## [5.0.1](https://github.com/rapidez/compare/releases/tag/5.0.1) - 2026-01-23
+
+### Fixed
+
+- Use core checkout component + circle style fix (#19)
+
 ## [5.0.0](https://github.com/rapidez/compare/releases/tag/5.0.0) - 2025-11-27
 
 ### Added
