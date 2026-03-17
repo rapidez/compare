@@ -1,5 +1,5 @@
 <x-rapidez::button.primary
-    class="absolute top-10 sm:top-14 aspect-square sm:left-1/3 lg:left-1/4 xl:left-[20%] z-10 rounded-full !p-0"
+    class="absolute top-10 sm:top-14 aspect-square sm:left-1/3 lg:left-1/4 xl:left-[20%] z-10 rounded-full p-0!"
     v-if="showLeft"
     v-on:click="navigate(currentSlide - 1)"
 >
@@ -7,7 +7,7 @@
 </x-rapidez::button.primary>
 
 <x-rapidez::button.primary
-    class="absolute top-10 sm:top-14 aspect-square right-0 flex z-10 rounded-full !p-0"
+    class="absolute top-10 sm:top-14 aspect-square right-0 flex z-10 rounded-full p-0!"
     v-if="showRight"
     v-on:click="navigate(currentSlide + 1)"
 >
