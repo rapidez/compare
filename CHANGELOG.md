@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/compare/compare/5.0.2...master)
+[Unreleased changes](https://github.com/rapidez/compare/compare/5.1.0...master)
+## [5.1.0](https://github.com/rapidez/compare/releases/tag/5.1.0) - 2026-09-30
+
+### Changed
+
+- Disallow robots to index the compare page (#21)
+
 ## [5.0.2](https://github.com/rapidez/compare/releases/tag/5.0.2) - 2026-03-17
 
 ### Fixed
