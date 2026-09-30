@@ -2,6 +2,7 @@
 
 @section('title', __('Product compare list'))
 @section('description', __('Page to view compare list of the user'))
+@section('robots', 'NOINDEX,NOFOLLOW')
 
 @section('content')
     <div class="container">
